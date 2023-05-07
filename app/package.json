@@ -1,0 +1,37 @@
+{
+  "name": "google-cloud-function",
+  "version": "1.0.0",
+  "author": "allu",
+  "description": "playing around with gcp and terraform",
+  "main": "dist/index.js",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "dev:build": "tsc -w",
+    "dev:watch": "nodemon --watch dist --delay 1 --exec npm start",
+    "dev": "concurrently \"npm run dev:build\" \"npm run dev:watch\"",
+    "invoke": "ts-node src/dev/invoke.ts",
+    "start": "functions-framework --source=dist/index.js --target=main --signature-type=cloudevent --debug"
+  },
+  "devDependencies": {
+    "@types/axios": "0.14.0",
+    "@types/google-cloud__pubsub": "0.26.1",
+    "@types/js-yaml": "4.0.5",
+    "@types/node": "20.0.0",
+    "concurrently": "8.0.1",
+    "nodemon": "2.0.22",
+    "rimraf": "5.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "@faker-js/faker": "7.6.0",
+    "@google-cloud/functions-framework": "3.2.0",
+    "@google-cloud/pubsub": "3.5.2",
+    "axios": "1.4.0",
+    "contentful-management": "10.35.0",
+    "dotenv": "16.0.3",
+    "js-yaml": "4.1.0"
+  }
+}
